@@ -14,27 +14,44 @@ const Home: React.FC<HomeInterface> = () => {
 
   const columns = [
     {
+      field: "actions",
+      headerName: "",
+      width: 50,
+      renderCell: (params: GridRenderCellParams) => <>{params.value}</>,
+    },
+    {
       field: "name",
       headerName: "Name",
       flex: 1,
       minWidth: 150,
-      renderCell: (params: GridRenderCellParams) => <>{params.field}</>,
+      renderCell: (params: GridRenderCellParams) => <>{params.value}</>,
+    },
+    {
+      field: "category",
+      headerName: "Categories",
+      flex: 1,
+      renderCell: (params: GridRenderCellParams) => <>{params.value}</>,
+    },
+    {
+      field: "company",
+      headerName: "Company",
+      flex: 1,
+      renderCell: (params: GridRenderCellParams) => <>{params.value}</>,
     },
   ];
 
   return (
-    <div>
-      <DataGrid
-        disableColumnSelector
-        disableRowSelectionOnClick
-        autoHeight
-        paginationModel={paginationModel}
-        onPaginationModelChange={setPaginationModel}
-        pageSizeOptions={[pageSize]}
-        rows={People}
-        columns={columns}
-      />
-    </div>
+    <DataGrid
+      disableColumnSelector
+      disableRowSelectionOnClick
+      autoHeight
+      paginationModel={paginationModel}
+      onPaginationModelChange={setPaginationModel}
+      pageSizeOptions={[pageSize]}
+      rows={People}
+      columns={columns}
+      getRowId={(row: any) => row.id}
+    />
   );
 };
 
