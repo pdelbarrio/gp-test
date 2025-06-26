@@ -3,12 +3,15 @@ import { DataGrid, type GridRenderCellParams } from "@mui/x-data-grid";
 import { People } from "@/data/people";
 import type { Person } from "@/models";
 import { Checkbox } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { addFavorite } from "@/redux/states";
 
 export interface HomeInterface {}
 
 const Home: React.FC<HomeInterface> = () => {
   const [selectedPeople, setSelectedPeople] = useState<Person[]>([]);
   const pageSize = 5;
+  const dispatch = useDispatch();
 
   const [paginationModel, setPaginationModel] = useState({
     page: 0,
@@ -22,9 +25,11 @@ const Home: React.FC<HomeInterface> = () => {
     selectedPeople.filter((p) => p.id !== person.id);
 
   const handleChange = (person: Person) => {
-    setSelectedPeople(
-      findPerson(person) ? filterPerson(person) : [...selectedPeople, person]
-    );
+    const filteredPeople = findPerson(person)
+      ? filterPerson(person)
+      : [...selectedPeople, person];
+    dispatch(addFavorite(filteredPeople));
+    setSelectedPeople(filteredPeople);
   };
 
   const columns = [
