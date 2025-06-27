@@ -7,14 +7,14 @@ import type { GridRenderCellParams } from "@mui/x-data-grid";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-export interface PeopleTableInterface {}
+export interface FavoriteTableInterface {}
 
-const PeopleTable: React.FC<PeopleTableInterface> = () => {
+const FavoriteTable: React.FC<FavoriteTableInterface> = () => {
   const [selectedPeople, setSelectedPeople] = useState<Person[]>([]);
   const pageSize = 5;
   const dispatch = useDispatch();
 
-  const statePeople = useSelector((store: AppStore) => store.people);
+  const stateFavorites = useSelector((store: AppStore) => store.favorites);
 
   const [paginationModel, setPaginationModel] = useState({
     page: 0,
@@ -82,11 +82,11 @@ const PeopleTable: React.FC<PeopleTableInterface> = () => {
       paginationModel={paginationModel}
       onPaginationModelChange={setPaginationModel}
       pageSizeOptions={[pageSize]}
-      rows={statePeople}
+      rows={stateFavorites}
       columns={columns}
       getRowId={(row: any) => row.id}
     />
   );
 };
 
-export default PeopleTable;
+export default FavoriteTable;
