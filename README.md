@@ -1,54 +1,116 @@
-# React + TypeScript + Vite
+# React People Management App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React application built with TypeScript, showcasing best practices in React development, clean architecture, and state management.
 
-Currently, two official plugins are available:
+## 🚀 Technologies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React + TypeScript
+- Vite (Build Tool)
+- Redux Toolkit (State Management)
+- Material-UI (Component Library)
+- RxJS (Reactive Programming)
+- ESLint (Code Quality)
 
-## Expanding the ESLint configuration
+## 🏗️ Architecture
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+The project follows a clean architecture pattern with a clear separation of concerns:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+src/
+├── components/     # Reusable UI components
+├── pages/          # Page components and routes
+├── redux/          # Redux store and state management
+├── models/         # TypeScript interfaces and types
+├── utilities/      # Helper functions and utilities
+├── styled-components/ # Styled component definitions
+└── data/          # Static data and mock services
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🎯 Features
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- People Management with DataGrid
+- Favorites System
+- Persistent Storage using LocalStorage
+- Reactive Dialog Management using RxJS
+- Type-safe Development with TypeScript
+- Responsive Material-UI Components
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+## 💡 Best Practices
+
+### React Best Practices
+- Functional Components with TypeScript
+- Custom Hooks for Logic Reuse
+- Proper Component Composition
+- Strict Mode Enabled
+
+### State Management
+- Redux Toolkit for Global State
+- Slice Pattern for State Organization
+- Type-safe Store Configuration
+- Local Storage Integration
+
+### TypeScript Integration
+- Strict Type Checking
+- Interface-based Component Props
+- Type-safe Redux Store
+- Proper Type Exports
+
+### Clean Code
+- ESLint Configuration for Code Quality
+- Consistent File Structure
+- Clear Naming Conventions
+- Module Aliasing (@/ imports)
+
+## 🛠️ Development Setup
+
+1. Install dependencies:
+```bash
+npm install
 ```
+
+2. Start development server:
+```bash
+npm run dev
+```
+
+3. Build for production:
+```bash
+npm run build
+```
+
+## 🔧 ESLint Configuration
+
+The project uses a modern ESLint setup with TypeScript integration:
+
+- Type-Aware Linting
+- React Hooks Rules
+- React Refresh Support
+- Custom TypeScript Rules
+
+## 📦 Project Structure
+
+- `components/`: Reusable UI components like Navbar, CustomDialog
+- `pages/`: Main application pages and their components
+- `redux/`: Store configuration and state slices
+- `models/`: TypeScript interfaces and type definitions
+- `utilities/`: Helper functions for localStorage and other utilities
+- `styled-components/`: Styled component definitions for layout
+
+## 🔄 State Management
+
+The application uses Redux Toolkit with two main slices:
+- `people`: Manages the list of people
+- `favorites`: Handles favorite people selection
+
+Both slices integrate with localStorage for persistence and maintain type safety through TypeScript interfaces.
+
+## 🎨 UI Components
+
+- Material-UI components for consistent design
+- DataGrid for efficient data display
+- Custom Dialog system using RxJS
+- Responsive layout components
+
+## 📱 Responsive Design
+
+The application is built with responsiveness in mind using Material-UI's responsive components and styled-components for custom layouts.
